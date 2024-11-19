@@ -1,0 +1,9 @@
+{
+	"name": "gitdatafactoryrijas",
+	"location": "canadaeast",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "64024aaa-8bf0-4674-a671-15b69e9e4aae",
+		"tenantId": "6d94ae06-b690-4557-88c8-998b34c0ec32"
+	}
+}
