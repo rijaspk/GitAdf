@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "newrijasdatafactory"
+		},
+		"AzureBlobStorage_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase_password": {
+			"value": ""
+		},
+		"AzureSqlDatabase_properties_typeProperties_server": {
+			"value": "azure-training-sql.database.windows.net"
+		},
+		"AzureSqlDatabase_properties_typeProperties_database": {
+			"value": "adf-lab"
+		},
+		"AzureSqlDatabase_properties_typeProperties_userName": {
+			"value": "azure-sql-user"
+		}
+	}
+}
