@@ -1,0 +1,9 @@
+{
+	"name": "newrijasdatafactory",
+	"location": "canadaeast",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "4850fadd-6a1b-4f57-96cd-48dc2ff4d4be",
+		"tenantId": "6d94ae06-b690-4557-88c8-998b34c0ec32"
+	}
+}
