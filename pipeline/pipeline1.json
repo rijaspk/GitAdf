@@ -1,43 +1,11 @@
 {
-	"name": "Customer_Table_Backup",
+	"name": "pipeline1",
 	"properties": {
 		"activities": [
 			{
-				"name": "LookupCustomerTable",
-				"type": "Lookup",
-				"dependsOn": [],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"source": {
-						"type": "AzureSqlSource",
-						"queryTimeout": "02:00:00",
-						"partitionOption": "None"
-					},
-					"dataset": {
-						"referenceName": "AzureSqlCustomer",
-						"type": "DatasetReference"
-					},
-					"firstRowOnly": false
-				}
-			},
-			{
-				"name": "Copy Customer Data",
+				"name": "Copy data1",
 				"type": "Copy",
-				"dependsOn": [
-					{
-						"activity": "LookupCustomerTable",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
+				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
@@ -75,23 +43,18 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "AzureSqlCustomer",
+						"referenceName": "AzureSqlTable1",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "CustomerData",
+						"referenceName": "Addresstable",
 						"type": "DatasetReference"
 					}
 				]
 			}
 		],
-		"variables": {
-			"StockTableRowCount": {
-				"type": "Integer"
-			}
-		},
 		"annotations": []
 	}
 }
