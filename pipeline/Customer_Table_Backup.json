@@ -5,6 +5,8 @@
 			{
 				"name": "LookupCustomerTable",
 				"type": "Lookup",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -30,7 +32,16 @@
 			{
 				"name": "Copy Customer Data",
 				"type": "Copy",
-				"dependsOn": [],
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
+				"dependsOn": [
+					{
+						"activity": "LookupCustomerTable",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
@@ -80,6 +91,11 @@
 				]
 			}
 		],
+		"variables": {
+			"StockTableRowCount": {
+				"type": "Integer"
+			}
+		},
 		"annotations": []
 	}
 }
