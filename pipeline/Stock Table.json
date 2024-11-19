@@ -30,16 +30,42 @@
 			{
 				"name": "If Condition1",
 				"type": "IfCondition",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "LookupStockTable",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
 						"value": "@greater(activity('LookupStockTable').output.count,0)",
 						"type": "Expression"
 					},
+					"ifFalseActivities": [
+						{
+							"name": "Row_Count",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "StockTableRowCount",
+								"value": {
+									"value": "@activity('LookupStockTable').output.count",
+									"type": "Expression"
+								}
+							}
+						}
+					],
 					"ifTrueActivities": [
 						{
-							"name": "Set variable1",
+							"name": "Row Count",
 							"type": "SetVariable",
 							"dependsOn": [],
 							"policy": {
